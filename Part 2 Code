@@ -32,14 +32,4 @@ int main(){
 }
 
 
-Executables:
-C:  gcc -S helloworld.c -o helloworld_c.s
-      gcc helloworld.c -o helloworld
-      ./helloworld
-
-
-C++ : g++ -S helloworldcpp.cpp -o helloworld_cpp.s
-          gcc helloworld.cpp -o helloworld
-          ./helloworld
-
 
