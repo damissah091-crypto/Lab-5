@@ -1,0 +1,52 @@
+# while (i <= 10) .L2: cmpl $10, -4(%rbp) # compare i to 10 jg .L3 # if i > 10, exit loop addl $1, -4(%rbp) # i++ jmp .L2 # ju```mp back to condition .L3:
+Code:
+	.section .data
+Numbers:
+    .long 1
+    .long 15
+    .long 4
+    .long 2
+    .long 7
+    .long 9
+    .long 23
+    .long 7
+    .long 3
+    .long 11
+Array_length: .long 10
+
+msg: .string "\nThe maximum value is %d\n"
+
+.section .text
+.globl main
+main:
+    pushq   %rbp
+    movq    %rsp, %rbp
+
+    movl    $0, %ecx                  # i = 0
+    leaq    Numbers(%rip), %rdx       # load address of Numbers array
+    movl    (%rdx), %eax              # max = Numbers[0]
+
+while:
+    cmpl    $10, %ecx                 # compare i to Array_length (10)
+    jge     done                      # if i >= 10, exit loop
+
+    movl    (%rdx, %rcx, 4), %esi    # load Numbers[i]
+    cmpl    %esi, %eax               # compare max to Numbers[i]
+    jge     increment                 # if max >= Numbers[i], skip
+    movl    %esi, %eax               # max = Numbers[i]
+
+increment:
+    addl    $1, %ecx                  # i++
+    jmp     while                     # loop back
+
+done:
+    movl    %eax, %esi               # pass max to printf
+    leaq    msg(%rip), %rdi          # pass format string
+    movl    $0, %eax
+    call    printf
+
+    movl    $0, %eax
+    popq    %rbp
+    ret
+
+Compile code: gcc figure4.s -o figure4        ./max_array
