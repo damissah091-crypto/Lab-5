@@ -1,2 +1,1 @@
-Compile code: gcc figure4.s -o figure4        
-Run Code: ./max_array
+gcc figure4.s -o figure4       
