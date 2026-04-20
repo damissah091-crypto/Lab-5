@@ -1,3 +1,3 @@
-C:  gcc -S helloworld.c -o helloworld_c.s
-      gcc helloworld.c -o helloworld
-      ./helloworld
+gcc -S helloworld.c -o helloworld_c.s
+gcc helloworld.c -o helloworld
+./helloworld
