@@ -1,0 +1,45 @@
+c++ code:
+C++: 
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Greeting {
+private:
+string greetingMessage;
+public:
+Greeting(string message){
+greetingMessage = message;
+}
+void greet(){
+cout << greetingMessage << endl ;
+}
+};
+int main()
+{
+Greeting msg( "Hello World!" );
+msg.greet();
+return 0;
+}
+
+C Code:
+#include "stdio.h"
+
+
+int main(){
+    printf("Hello world\n");
+    return 0;
+}
+
+
+Executables:
+C:  gcc -S helloworld.c -o helloworld_c.s
+      gcc helloworld.c -o helloworld
+      ./helloworld
+
+
+C++ : g++ -S helloworldcpp.cpp -o helloworld_cpp.s
+          gcc helloworld.cpp -o helloworld
+          ./helloworld
+
+
