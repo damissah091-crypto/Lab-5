@@ -1,0 +1,3 @@
+g++ -S helloworldcpp.cpp -o helloworld_cpp.s
+gcc helloworld.cpp -o helloworld
+./helloworld
