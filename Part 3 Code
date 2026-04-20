@@ -48,6 +48,3 @@ done:
     movl    $0, %eax
     popq    %rbp
     ret
-
-Compile code: gcc figure4.s -o figure4        
-Run Code: ./max_array
